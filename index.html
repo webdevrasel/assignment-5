@@ -1,11 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
+    <!-- Meta tags for character encoding and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dev Board</title>
+
+    <!-- DaisyUI and Tailwind CSS for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom font import from Google Fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        /* Apply the custom font to the body */
+        body {
+            font-family: "Outfit", sans-serif;
+            font-style: normal;
+        }
+    </style>
 </head>
-<body>
-    
+<body class="bg-[#F4F7FF]">
+
+    <!-- Header section -->
+    <header class="container mx-auto my-auto py-10 top-5 text-black">
+        <!-- Navigation bar -->
+        <nav class="bg-white p-8 rounded-lg container flex justify-between">
+            <!-- Logo and site name -->
+            <div class="flex items-center">
+                <img class="w-12" src="images/logo.png" alt="Logo">
+                <h1 class="text-2xl ml-2">Dev <span class="font-bold">Board</span></h1>
+            </div>
+
+            <!-- Task count and theme toggle button -->
+            <div class="flex items-center">
+                <img class="w-5 h-5 mt-2" src="images/checkbox.png" alt="Checkbox">
+                <h1 id="task-plas" class="font-bold mt-1 ml-2 text-xl">23</h1>
+                <img id="theme" class="w-8 h-8 mt-1 ml-7" src="images/theme-btn.png" alt="Theme Toggle">
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main content section -->
+    <main>
+        <section class="container mx-auto md:flex mt-8 min-h-screen">
+
+            <!-- Left section: Task cards -->
+            <div class="bg-white p-10 rounded-lg md:w-3/4">
+
+                <!-- Task summary grid -->
+                <div class="grid grid-cols-4 gap-4">
+                    <!-- Task assigned card -->
+                    <div class="col-span-1 flex md:justify-center items-center p-10 bg-[#F4F7FF] rounded-lg">
+                        <img class="w-6 h-6" src="images/checkbox.png" alt="Checkbox">
+                        <div class="ml-5">
+                            <p class="text-gray-500 text-lg">Task Assigned</p>
+                            <h1 id="task-minus" class="font-bold text-2xl">05</h1>
+                        </div>
+                    </div>
+
+                    <!-- Discover new task card -->
+                    <div id="Discover" class="col-span-2 flex items-center gap-4 cursor-pointer bg-gradient-to-r from-[#3752FD] to-[#9BA8F8] rounded-lg">
+                        <img class="border-dashed border-white ml-6" src="images/board.png" alt="Board">
+                        <p class="text-white text-2xl text-left font-normal">Discover Something <br> New Today!</p>
+                    </div>
+
+                    <!-- Current date card -->
+                    <div class="col-span-1 flex mt-5 p-3 md:mt-0 md:justify-center items-center bg-[#F4F7FF] rounded-lg gap-2 text-black">
+                        <img class="p-3 bg-white rounded-lg" src="images/calender.png" alt="Calendar">
+                        <h1 id="current-date"></h1>
+                    </div>
+                </div>
+
+                <!-- Task cards grid -->
+                <div id="card-container" class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                    <!-- Task card 1 -->
+                    <div class="mt-16 task bg-[#F4F7FF] p-6 rounded-lg">
+                        <div class="flex flex-col justify-start">
+                            <p class="text-base text-gray-700 bg-white p-4 rounded-lg self-start">ShopEase</p>
+                            <p class="text-xl font-bold mt-4 card-title">Fix Mobile Button Issue</p>
+                            <p class="bg-white p-4 mt-4 text-base text-gray-500 rounded-lg">Debug using Chrome DevTools, check for overlappi...</p>
+                        </div>
+                        <div class="flex mt-12 justify-between">
+                            <div class="ml-2">
+                                <p class="text-[#00303C]">Deadline</p>
+                                <h3>21 March 2025</h3>
+                            </div>
+                            <button class="btn btn-primary text-white">Completed</button>
+                        </div>
+                    </div>
+
+                    <!-- Task card 2 -->
+                    <div class="mt-16 task bg-[#F4F7FF] p-6 rounded-lg">
+                        <div class="flex flex-col justify-start">
+                            <p class="text-base text-gray-700 bg-white p-4 rounded-lg self-start">CloudSync</p>
+                            <p class="text-xl font-bold mt-4 card-title">Add Dark Mode</p>
+                            <p class="bg-white p-4 mt-4 text-base text-gray-500 rounded-lg">Store the user's preference in localStorage, update CSS vari...</p>
+                        </div>
+                        <div class="flex mt-12 justify-between">
+                            <div class="ml-2">
+                                <p class="text-[#00303C]">Deadline</p>
+                                <h3>21 March 2025</h3>
+                            </div>
+                            <button class="btn btn-primary text-white">Completed</button>
+                        </div>
+                    </div>
+
+                    <!-- Task card 3 -->
+                    <div class="mt-16 task bg-[#F4F7FF] p-6 rounded-lg">
+                        <div class="flex flex-col justify-start">
+                            <p class="text-base text-gray-700 bg-white p-4 rounded-lg self-start">SwiftPay</p>
+                            <p class="text-xl font-bold mt-4 card-title">Optimize Home page</p>
+                            <p class="bg-white p-4 mt-4 text-base text-gray-500 rounded-lg">Debug using Chrome DevTools, check for overlappi...</p>
+                        </div>
+                        <div class="flex mt-12 justify-between">
+                            <div class="ml-2">
+                                <p class="text-[#00303C]">Deadline</p>
+                                <h3>21 March 2025</h3>
+                            </div>
+                            <button class="btn btn-primary text-white">Completed</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second row of task cards -->
+                <div id="card-container" class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-2 mb-8">
+                    <!-- Task card 4 -->
+                    <div class="task bg-[#F4F7FF] p-6 rounded-lg">
+                        <div class="flex flex-col justify-start">
+                            <p class="text-base text-gray-700 bg-white p-4 rounded-lg self-start">Meta</p>
+                            <p class="text-xl font-bold mt-4 card-title">Add new emoji 🤲</p>
+                            <p class="bg-white p-4 mt-4 text-base text-gray-500 rounded-lg">Debug using Chrome DevTools, check for overlappi...</p>
+                        </div>
+                        <div class="flex mt-12 justify-between">
+                            <div class="ml-2">
+                                <p class="text-[#00303C]">Deadline</p>
+                                <h3>21 March 2025</h3>
+                            </div>
+                            <button class="btn btn-primary text-white">Completed</button>
+                        </div>
+                    </div>
+
+                    <!-- Task card 5 -->
+                    <div class="task bg-[#F4F7FF] p-6 rounded-lg">
+                        <div class="flex flex-col justify-start">
+                            <p class="text-base text-gray-700 bg-white p-4 rounded-lg self-start">Google LLC</p>
+                            <p class="text-xl font-bold mt-4 card-title">Integrate OpenAI API</p>
+                            <p class="bg-white p-4 mt-4 text-base text-gray-500 rounded-lg">Debug using Chrome DevTools, check for overlappi...</p>
+                        </div>
+                        <div class="flex mt-12 justify-between">
+                            <div class="ml-2">
+                                <p class="text-[#00303C]">Deadline</p>
+                                <h3>21 March 2025</h3>
+                            </div>
+                            <button class="btn btn-primary text-white">Completed</button>
+                        </div>
+                    </div>
+
+                    <!-- Task card 6 -->
+                    <div class="task bg-[#F4F7FF] p-6 rounded-lg">
+                        <div class="flex flex-col justify-start">
+                            <p class="text-base text-gray-700 bg-white p-4 rounded-lg self-start">Glassdoar</p>
+                            <p class="text-xl font-bold mt-4 card-title">Improve Job searching</p>
+                            <p class="bg-white p-4 mt-4 text-base text-gray-500 rounded-lg">Debug using Chrome DevTools, check for overlappi...</p>
+                        </div>
+                        <div class="flex mt-12 justify-between">
+                            <div class="ml-2">
+                                <p class="text-[#00303C]">Deadline</p>
+                                <h3>21 March 2025</h3>
+                            </div>
+                            <button class="btn btn-primary text-white">Completed</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right section: Activity log -->
+            <div class="bg-white p-10 rounded-lg md:ml-10 md:w-1/4">
+                <div class="flex justify-center gap-4">
+                    <img src="assets/activity.png" alt="Activity Icon">
+                    <p>Activity Log</p>
+                </div>
+                <!-- Clear history button -->
+                <button id="clear-btn" class="btn flex justify-center mt-5 mx-auto h-10 bg-[#3752FD] border-none text-white">Clear History</button>
+                <hr class="border-t-2 border-dashed border-gray-400 mt-5">
+
+                <!-- Task history section -->
+                <div id="task-history" class="mt-3 p-4">
+                    <!-- Task history will be dynamically added here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer section -->
+        <footer class="p-4 bg-black text-white">
+            <p class="text-[16px] pt-3 text-center">Copyright © 2025 | Dev Board | Developed by Web Dev Rasel.</p>
+        </footer>
+    </main>
+
+    <!-- Link to external JavaScript file -->
+    <script src="JavaScript/script.js"></script>
 </body>
 </html>
