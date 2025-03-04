@@ -1,0 +1,98 @@
+<!-- Declare document type and set the language to English -->
+<!DOCTYPE html>
+<html lang="en " data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Daisy UI CDN Link -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Tailwind CSS CDN Link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Font Link -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        /* Apply font styles to the body */
+        body {
+            font-family: "Outfit", sans-serif;
+            font-style: normal;
+        }
+    </style> 
+    <title>DOM Question</title>
+</head>
+<body class="bg-[#F4F7FF]">
+    <!-- Navigation Bar -->
+    <div class="pt-12">
+        <nav class="bg-white p-8 mb-8 rounded-lg container flex justify-between mx-auto">
+            <div class="flex items-center">
+                <!-- Logo -->
+                <img class="w-10 h-10" src="images/logo.png" alt="">
+                <h1 class="text-2xl ml-2">Dev <span class="font-bold">Board</span></h1>
+            </div>
+    
+            <!-- Back to Desk Button -->
+            <div class="flex">
+                <button id="back-main" class="btn-md bg-[#3752FD] text-white rounded-lg mr-6">Back To Desk</button>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4">
+        <div class="ml-6">
+            <h1 class="text-5xl font-bold text-center mb-10">Blogs</h1>
+            
+            <!-- Question 1 -->
+            <div class="mb-5">
+                <p class="text-4xl font-semibold mt-3">Question-1: What are the different ways to select an element in the DOM?</p>
+                <p class="text-2xl mt-4 text-gray-600">Ans: Different ways to select an element in the DOM:</p>
+                <ol class="list-decimal ml-6 text-gray-600">
+                    <li>By ID</li>
+                    <li>By Class</li>
+                    <li>By Tag Name</li>
+                    <li>By CSS Selector (querySelector)</li>
+                    <li>By CSS Selector (querySelectorAll)</li>
+                    <li>By Name Attribute</li>
+                </ol>
+            </div>
+            <hr class="border-t-2 border-dashed border-gray-400 mt-2"> <br>
+
+            <!-- Question 2 -->
+            <div>
+                <p class="text-3xl font-semibold">Question-2: What is the difference between innerHTML, innerText, and textContent?</p>
+                <p class = "text-2xl mt-4 text-gray-600">Ans: The differences between innerHTML, innerText, and textContent:</p>
+                <ul class="list-decimal ml-6 text-gray-600">
+                    <li>innerHTML returns or sets the entire content, including HTML tags.</li>
+                    <li>innerText returns or sets only the visible text, ignoring hidden elements.</li>
+                </ul>
+            </div>
+            <hr class="border-t-2 border-dashed border-gray-400 mt-2">
+
+            <!-- Question 3 -->
+            <p class="text-3xl font-semibold mt-5">Question-3: What is event delegation in the DOM?</p>
+            <p class="ml-2 mt-2 text-gray-600">Ans: Event Delegation is a design pattern where an event listener is attached to a parent element and manages event handling for child elements. It works based on the Event Bubbling mechanism.</p>
+            <hr class="border-t-2 border-dashed border-gray-400 mt-2">
+            
+            <!-- Question 4 -->
+            <p class="text-3xl font-semibold mt-5">Question-4: What is event bubbling in the DOM?</p>
+            <p class="mt-2 ml-2 text-gray-600">Ans: Event Bubbling is an event propagation mechanism where an event triggered on a child element propagates up to its parent elements. It works in a bottom-to-top manner.</p>
+            <hr class="border-t-2 border-dashed border-gray-400 mt-2">
+            
+            <!-- Question 5 -->
+            <p class="text-3xl font-semibold mt-5">Question-5: How do you create, add, and remove elements using JavaScript?</p>
+            <p class="mt-2 ml-2 text-gray-600">Ans: In JavaScript, we can create, add, and remove elements in the DOM dynamically using methods like createElement(), appendChild(), and removeChild().</p>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="p-8 bg-black text-white mt-12">
+        <p class="text-[16px] pt-3 text-center">Copyright © 2025 | Dev Board | Developed by Web Dev Rasel.</p>
+    </footer>
+
+    <!-- External JavaScript File Link -->
+    <script src="JavaScript/question.js"></script>
+</body>
+</html>
